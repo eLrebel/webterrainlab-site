@@ -22,7 +22,6 @@
     clearInterval(poll);poll=null;
     key.value=response.licenseKey;
     document.getElementById("license-box").hidden=false;
-    localStorage.removeItem("wtl_pending");
     show("Purchase verified. Copy and keep your activation key.");
    }else show("Payment confirmation pending; checking again…");
   }catch(e){show(e.message);}
