@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "worlds": [
+    {
+      "id": "urban_warfare",
+      "number": "01",
+      "title": "Urban Warfare",
+      "art": "urban",
+      "description": "Miniature traffic, aircraft, constructions and unpredictable encounters move across the page."
+    },
+    {
+      "id": "nature",
+      "number": "02",
+      "title": "Nature World",
+      "art": "nature",
+      "description": "Forests grow, weather changes, wildlife wanders, and ecosystems respond to one another."
+    },
+    {
+      "id": "ocean",
+      "number": "03",
+      "title": "Ocean World",
+      "art": "ocean",
+      "description": "Schooling fish, reef habitats, predators and gentle water transitions fill the screen."
+    },
+    {
+      "id": "space",
+      "number": "04",
+      "title": "Space World",
+      "art": "space",
+      "description": "Three factions mine asteroids, expand defenses, launch fleets, and clash under gravity."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Web Terrain Lab — Premium Worlds</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif}*{box-sizing:border-box}
+body{margin:0;background:#101b29;color:#ecf8f5}main{max-width:650px;margin:8vh auto;padding:24px}
+section{background:#193043;border:1px solid #365666;padding:24px;border-radius:16px}
+h1{font-size:32px}.price{font-size:32px;color:#8be5cd;font-weight:800}
+p{line-height:1.6;color:#bbd3d7}button{padding:12px 20px;background:#85e3cf;
+color:#072c36;font-weight:700;border:0;border-radius:8px;cursor:pointer}
+button:disabled{opacity:.5}input{width:100%;padding:12px;background:#0b2231;color:#c9f9e9;
+border:1px solid #6494a0;border-radius:8px;margin:8px 0;font:14px monospace}
+#status{padding:10px;background:#213d4d;border-radius:8px}small{color:#9cb7c5}
+</style></head><body><main>
+<h1>Web Terrain Lab</h1><p>One tiny civilization inside your browser. Urban Warfare stays free.</p>
+<section><div class="price">$5 USD · one-time</div>
+<h2>Premium Worlds Pass</h2><p>Unlock Nature, Ocean and Space. No monthly subscription.</p>
+<button id="buy" disabled>Checkout not configured</button>
+<p id="status" role="status">Checking Paddle configuration…</p>
+<div id="license-box" hidden><p>Your purchase has been verified. Keep this activation key:</p>
+<input id="key" readonly aria-label="Activation key"><button id="copy">Copy activation key</button>
+<p>Open the extension popup and enter this key to unlock Premium Worlds.</p></div></section>
+<p><small>Payments are processed securely by Paddle. Card information is never
+collected by this page. Terms, refunds, and support details must be published
+before enabling live payments.</small></p></main>
+<script src="config.js"></script>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script src="checkout.js"></script>
+</body></html>
