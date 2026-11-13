@@ -10,7 +10,10 @@
  async function api(path,data){
   const response=await fetch(base+path,{method:"POST",
    headers:{"content-type":"application/json"},body:JSON.stringify(data||{})});
-  if(!response.ok)throw Error("Verification service unavailable ("+response.status+")");
+  if(!response.ok){
+   const error=Error("Verification service unavailable ("+response.status+")");
+   error.status=response.status;throw error;
+  }
   return response.json();
  }
  let pending=null,poll=null;
@@ -23,8 +26,17 @@
     key.value=response.licenseKey;
     document.getElementById("license-box").hidden=false;
     show("Purchase verified. Copy and keep your activation key.");
+   }else if(response.status==="unavailable"){
+    clearInterval(poll);poll=null;
+    document.getElementById("license-box").hidden=true;key.value="";
+    show("This key is unavailable or has been replaced. Contact "+cfg.supportEmail+" with your Paddle receipt.");
    }else show("Payment confirmation pending; checking again…");
-  }catch(e){show(e.message);}
+  }catch(e){
+   if(e.status===404){
+    clearInterval(poll);poll=null;pending=null;localStorage.removeItem("wtl_pending");
+    show("Recovery session expired. Contact "+cfg.supportEmail+" from your purchase email with your Paddle receipt.");
+   }else show(e.message);
+  }
  }
  function checking(){if(!poll)poll=setInterval(check,3000);void check();}
  document.getElementById("copy").addEventListener("click",()=>{
@@ -44,7 +56,7 @@
   buy.disabled=true;
   try{
    const session=await api("/api/session");
-   pending={id:session.id,secret:session.secret};
+   pending={id:session.id,secret:session.secret,created:Date.now()};
    localStorage.setItem("wtl_pending",JSON.stringify(pending));
    Paddle.Checkout.open({items:[{priceId:cfg.priceId,quantity:1}],
     customData:{wtl_session:pending.id,wtl_sku:"premium_worlds_v1"}});

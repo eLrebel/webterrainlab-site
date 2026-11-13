@@ -5,5 +5,5 @@ window.WTL_CHECKOUT = {
   clientToken: "test_eef4bc3cdce0a13e900a92ce4f2",
   priceId: "pri_01m77n4bqdgxqc2m8b9zrfjp2y",
   apiBaseUrl: "https://tiny-world-sandbox-licenses.elrebelgamer.workers.dev",
-  supportEmail: ""
+  supportEmail: "aswanthsreeram@gmail.com"
 };
